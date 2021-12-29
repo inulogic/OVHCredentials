@@ -1,34 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+namespace OVHCredentials;
 
-namespace OVHCredentials
+using System.ComponentModel.DataAnnotations;
+
+/// <summary>
+/// Options to configure the message handler.
+/// </summary>
+public class OvhCredentialsOption
 {
     /// <summary>
-    /// Options to configure the message handler
+    /// Gets or sets application key.
     /// </summary>
-    public class OvhCredentialsOption
-    {
-        /// <summary>
-        /// Application key
-        /// </summary>
-        [Required(ErrorMessage = "Application key is required.")]
-        public string ApplicationKey { get; set; }
+    [Required(ErrorMessage = "Application key is required.")]
+    public string ApplicationKey { get; set; }
 
-        /// <summary>
-        /// Application secret
-        /// </summary>
-        [Required(ErrorMessage = "Application secret is required.")]
-        public string ApplicationSecret { get; set; }
+    /// <summary>
+    /// Gets or sets application secret.
+    /// </summary>
+    [Required(ErrorMessage = "Application secret is required.")]
+    public string ApplicationSecret { get; set; }
 
-        /// <summary>
-        /// Consumer key
-        /// </summary>
-        [Required(ErrorMessage = "Consumer key is required.")]
-        public string ConsumerKey { get; set; }
+    /// <summary>
+    /// Gets or sets consumer key.
+    /// </summary>
+    [Required(ErrorMessage = "Consumer key is required.")]
+    public string ConsumerKey { get; set; }
 
-        /// <summary>
-        /// If provided, HttpClient instance used to retrieved the remote time
-        /// will be created using the configuration specified by RemoteTimeHttpClientName
-        /// </summary>
-        public string RemoteTimeHttpClientName { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets if provided, HttpClient instance used to retrieved the remote time
+    /// will be created using the configuration specified by RemoteTimeHttpClientName.
+    /// </summary>
+    public string RemoteTimeHttpClientName { get; set; }
 }

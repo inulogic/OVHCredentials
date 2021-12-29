@@ -1,11 +1,10 @@
-﻿using System;
+namespace OVHCredentials;
+
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OVHCredentials
+internal interface IRemoteTimeProvider
 {
-    internal interface IRemoteTimeProvider
-    {
-        Task<long> UnixTimeUtcNowAsync(Uri baseAddress, CancellationToken cancellationToken);
-    }
+    Task<long> UnixTimeUtcNowAsync(Uri baseAddress, CancellationToken cancellationToken);
 }
