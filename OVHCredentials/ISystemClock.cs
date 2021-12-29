@@ -1,17 +1,16 @@
-﻿using System;
+namespace OVHCredentials;
 
-namespace OVHCredentials
+using System;
+
+/// <summary>
+/// Used for testing purpose.
+/// </summary>
+public interface ISystemClock
 {
-    /// <summary>
-    /// Used for testing purpose.
-    /// </summary>
-    public interface ISystemClock
-    {
-        DateTimeOffset UtcNow { get; }
-    }
+    DateTimeOffset UtcNow { get; }
+}
 
-    internal class SystemClock : ISystemClock
-    {
-        public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
-    }
+internal class SystemClock : ISystemClock
+{
+    public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
 }

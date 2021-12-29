@@ -1,36 +1,35 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+namespace OVHCredentials;
+
 using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace OVHCredentials
+public static class OvhExtensions
 {
-    public static class OvhExtensions
+    /// <summary>
+    /// Adds a message handler which will set OVH credentials header on the request.
+    /// </summary>
+    /// <param name="builder">The Microsoft.Extensions.DependencyInjection.IHttpClientBuilder.</param>
+    /// <param name="configure"></param>
+    /// <returns>An Microsoft.Extensions.DependencyInjection.IHttpClientBuilder that can be used to configure the client.</returns>
+    public static IHttpClientBuilder AddOvhCredentials(this IHttpClientBuilder builder, Action<OvhCredentialsOption> configure)
     {
-        /// <summary>
-        /// Adds a message handler which will set OVH credentials header on the request
-        /// </summary>
-        /// <param name="builder">The Microsoft.Extensions.DependencyInjection.IHttpClientBuilder.</param>
-        /// <param name="configure"></param>
-        /// <returns>An Microsoft.Extensions.DependencyInjection.IHttpClientBuilder that can be used to configure the client.</returns>
-        public static IHttpClientBuilder AddOvhCredentials(this IHttpClientBuilder builder, Action<OvhCredentialsOption> configure)
-        {
-            builder.Services
-                .AddCore()
-                .AddOptions<OvhCredentialsOption>().Configure(configure).ValidateDataAnnotations();
+        builder.Services
+            .AddCore()
+            .AddOptions<OvhCredentialsOption>().Configure(configure).ValidateDataAnnotations();
 
-            builder.AddHttpMessageHandler<OvhDelegatingHandler>();
+        builder.AddHttpMessageHandler<OvhDelegatingHandler>();
 
-            return builder;
-        }
+        return builder;
+    }
 
-        private static IServiceCollection AddCore(this IServiceCollection services)
-        {
-            services.AddTransient<OvhDelegatingHandler>();
-            services.TryAddSingleton<ISystemClock, SystemClock>();
+    private static IServiceCollection AddCore(this IServiceCollection services)
+    {
+        services.AddTransient<OvhDelegatingHandler>();
+        services.TryAddSingleton<ISystemClock, SystemClock>();
 
-            services.AddSingleton<IRemoteTimeProvider, CacheTimeDeltaProvider>();
+        services.AddSingleton<IRemoteTimeProvider, CacheTimeDeltaProvider>();
 
-            return services;
-        }
+        return services;
     }
 }
