@@ -23,7 +23,7 @@ internal class Program
     private static async Task<string> GetConsumerKey()
     {
         var provider = new ServiceCollection()
-        .AddRefitClient<ICredentialRequestOvhApi>(new RefitSettings()
+        .AddRefitClient<ICredentialRequestOVHApi>(new RefitSettings()
         {
             ContentSerializer = new SystemTextJsonContentSerializer(new JsonSerializerOptions()
             {
@@ -33,7 +33,7 @@ internal class Program
         .ConfigureHttpClient(c => c.BaseAddress = new Uri(BaseAddress))
         .Services.BuildServiceProvider();
 
-        var client = provider.GetRequiredService<ICredentialRequestOvhApi>();
+        var client = provider.GetRequiredService<ICredentialRequestOVHApi>();
 
         var requestPayload = new CredentialRequest
         {
@@ -63,7 +63,7 @@ internal class Program
         // as credentials are time based, polly (if used) should be placed before credentials
         .AddTransientHttpErrorPolicy(policyBuilder => policyBuilder.RetryAsync(2))
         // configure the client with ovh credentials
-        .AddOvhCredentials(options =>
+        .AddOVHCredentials(options =>
         {
             options.ApplicationKey = ApplicationKey;
             options.ApplicationSecret = ApplicationSecret;

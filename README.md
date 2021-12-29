@@ -8,14 +8,14 @@ This project does not aim at providing a strongly-typed rest client. OVH API cha
 
 ## Usage
 
-You only need to add the delegating handler by calling `AddOvhCredentials`.
+You only need to add the delegating handler by calling `AddOVHCredentials`.
 
 To get your credentials, follow the [user guide](https://docs.ovh.com/gb/en/api/first-steps-with-ovh-api/#advanced-usage-pair-ovhcloud-apis-with-an-application_2). 
 
 ```csharp
 var provider = new ServiceCollection()
     .AddHttpClient("ovh", c => c.BaseAddress = new Uri("https://eu.api.ovh.com/1.0"))
-    .AddOvhCredentials(options =>
+    .AddOVHCredentials(options =>
     {
         // you are free to use whatever you are used to to configure the handler
         options.ApplicationKey = "";
@@ -44,7 +44,7 @@ class Program
             // as credentials are time based, polly (if used) should be placed before credentials
             .AddTransientHttpErrorPolicy(policyBuilder => policyBuilder.RetryAsync(2))
             // configure the client with ovh credentials
-            .AddOvhCredentials(options =>
+            .AddOVHCredentials(options =>
             {
                 // you are free to use whatever you are used to to configure the handler
                 options.ApplicationKey = "";

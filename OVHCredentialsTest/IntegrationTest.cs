@@ -20,11 +20,11 @@ public class IntegrationTest
     public async Task TestAsync()
     {
         var now = DateTimeOffset.UtcNow;
-        var expectedOptions = new OvhCredentialsOption()
+        var expectedOptions = new OVHCredentialsOption()
         {
-            ApplicationKey = nameof(OvhCredentialsOption.ApplicationKey),
-            ApplicationSecret = nameof(OvhCredentialsOption.ApplicationSecret),
-            ConsumerKey = nameof(OvhCredentialsOption.ConsumerKey)
+            ApplicationKey = nameof(OVHCredentialsOption.ApplicationKey),
+            ApplicationSecret = nameof(OVHCredentialsOption.ApplicationSecret),
+            ConsumerKey = nameof(OVHCredentialsOption.ConsumerKey)
         };
 
         using var hostTime = await new HostBuilder()
@@ -61,7 +61,7 @@ public class IntegrationTest
         services.AddRefitClient<IEchoApi>()
             .ConfigurePrimaryHttpMessageHandler(() => hostApi.GetTestServer().CreateHandler())
             .ConfigureHttpClient(client => client.BaseAddress = new Uri(hostApi.GetTestServer().BaseAddress, "1.0"))
-            .AddOvhCredentials(options =>
+            .AddOVHCredentials(options =>
             {
                 options.ApplicationKey = expectedOptions.ApplicationKey;
                 options.ApplicationSecret = expectedOptions.ApplicationSecret;

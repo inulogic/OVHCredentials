@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 /// <summary>
 /// Options to configure the message handler.
 /// </summary>
-public class OvhCredentialsOption
+public class OVHCredentialsOption
 {
     /// <summary>
     /// Gets or sets application key.

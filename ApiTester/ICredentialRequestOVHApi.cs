@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
 
-public interface ICredentialRequestOvhApi
+public interface ICredentialRequestOVHApi
 {
     [Post("/auth/credential")]
     public Task<CredentialRequestResult> RequestConsumerKeyAsync([Body] CredentialRequest credentialRequest, [Header("X-Ovh-Application")] string applicationKey);

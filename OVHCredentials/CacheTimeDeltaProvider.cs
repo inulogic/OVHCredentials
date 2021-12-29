@@ -12,9 +12,9 @@ internal class CacheTimeDeltaProvider : IRemoteTimeProvider
     private readonly ConcurrentDictionary<Uri, Task<long>> cache = new();
     private readonly IHttpClientFactory httpClientFactory;
     private readonly ISystemClock clock;
-    private readonly OvhCredentialsOption options;
+    private readonly OVHCredentialsOption options;
 
-    public CacheTimeDeltaProvider(IHttpClientFactory httpClientFactory, IOptions<OvhCredentialsOption> options, ISystemClock clock)
+    public CacheTimeDeltaProvider(IHttpClientFactory httpClientFactory, IOptions<OVHCredentialsOption> options, ISystemClock clock)
     {
         this.httpClientFactory = httpClientFactory;
         this.clock = clock;

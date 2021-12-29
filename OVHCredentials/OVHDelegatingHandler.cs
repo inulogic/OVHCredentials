@@ -8,17 +8,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 
-internal class OvhDelegatingHandler : DelegatingHandler
+internal class OVHDelegatingHandler : DelegatingHandler
 {
     public const string OVHAPPLICATIONHEADER = "X-Ovh-Application";
     public const string OVHCONSUMERHEADER = "X-Ovh-Consumer";
     public const string OVHTIMESTAMPHEADER = "X-Ovh-Timestamp";
     public const string OVHSIGNATUREHEADER = "X-Ovh-Signature";
 
-    private readonly IOptions<OvhCredentialsOption> options;
+    private readonly IOptions<OVHCredentialsOption> options;
     private readonly IRemoteTimeProvider timeProvider;
 
-    public OvhDelegatingHandler(IOptions<OvhCredentialsOption> options, IRemoteTimeProvider timeProvider)
+    public OVHDelegatingHandler(IOptions<OVHCredentialsOption> options, IRemoteTimeProvider timeProvider)
     {
         this.options = options;
         this.timeProvider = timeProvider;
