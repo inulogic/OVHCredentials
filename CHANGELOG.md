@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/inulogic/OVHCredentials/compare/v2.0.0...v2.0.1) (2023-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update dotnet monorepo ([#31](https://github.com/inulogic/OVHCredentials/issues/31)) ([5b458a6](https://github.com/inulogic/OVHCredentials/commit/5b458a6a05c36bb8c34c84be1ee5289bfff62e79))
+
 # [2.0.0](https://github.com/inulogic/OVHCredentials/compare/v1.0.0...v2.0.0) (2021-12-30)
 
 
