@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/inulogic/OVHCredentials/compare/v2.0.1...v2.1.0) (2024-02-17)
+
+
+### Features
+
+* **deps:** update dotnet monorepo to v8 ([97a8c23](https://github.com/inulogic/OVHCredentials/commit/97a8c23bc18fdc12c52f4ccfe724f17727570acf))
+
 ## [2.0.1](https://github.com/inulogic/OVHCredentials/compare/v2.0.0...v2.0.1) (2023-07-01)
 
 
